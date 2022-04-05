@@ -1,7 +1,7 @@
 /*
  * @Author: KUAI(https://github.com/kuainx)
  * @Date: 2022-03-06 12:53:15
- * @LastEditTime: 2022-03-06 13:28:46
+ * @LastEditTime: 2022-04-05 19:44:39
  * @LastEditors: KUAI
  * @Description:
  * @FilePath: \wx-js\svg.js
@@ -24,9 +24,9 @@ imgList.forEach(element => {
     svgDom.style.width = element.style.width;
   }
   if (element.style.height != '') {
-    svgDom.style.width = element.style.height;
+    svgDom.style.height = element.style.height;
   }
   element.parentElement.insertBefore(svgDom, element);
-  console.log('已完成', i, '图片复制');
-  i++
+  console.log('已完成', i, '图片复制', element);
+  i++;
 });
