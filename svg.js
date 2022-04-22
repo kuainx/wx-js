@@ -1,7 +1,7 @@
 /*
  * @Author: KUAI(https://github.com/kuainx)
  * @Date: 2022-03-06 12:53:15
- * @LastEditTime: 2022-04-05 19:44:39
+ * @LastEditTime: 2022-04-22 20:32:32
  * @LastEditors: KUAI
  * @Description:
  * @FilePath: \wx-js\svg.js
@@ -17,8 +17,12 @@ if (imgList.length === 0) {
   imgList = document.getElementById("ueditor_0").contentWindow.document.querySelectorAll(".rich_pages.wxw-img");
 }
 console.log('共有', imgList.length, '图片');
-let i = 1;
+let i = 0;
 imgList.forEach(element => {
+  i++;
+  if (i == 1 || i == imgList.length) {
+    return;
+  }
   let svgDom = createSvg(element.src, element.naturalWidth, element.naturalHeight);
   if (element.style.width != '') {
     svgDom.style.width = element.style.width;
@@ -27,6 +31,5 @@ imgList.forEach(element => {
     svgDom.style.height = element.style.height;
   }
   element.parentElement.insertBefore(svgDom, element);
-  console.log('已完成', i, '图片复制', element);
-  i++;
+  console.log('已完成第', i, '图片复制', element);
 });
